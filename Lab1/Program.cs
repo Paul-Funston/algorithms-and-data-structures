@@ -44,7 +44,7 @@ char key = ' ';
 while (!(isValid)) 
 {
     Console.WriteLine();
-    Console.Write("Please Enter a Letter: ");
+    Console.Write("Please Type a Letter: ");
     char userKey = Console.ReadKey().KeyChar;
 
     if (char.IsLetter(userKey))
