@@ -30,13 +30,14 @@ Create new methods to solve each of the following problems.
  * Problem #3
  Given an integer, reverse the digits of that integer, e. g. input is 345, output is 543. What is the time complexity of your solution?
 
-Time complexity of this solution. Method 2 is O2N where N is the number of digits in the original number.
+Time complexity of this solution. Method 1 is O2N where N is the number of digits in the original number.
+2nd Attempted 0N;
 */
 
 
 
-
-
+/*
+ //FIRST DRAFT
 int startingNum = 345;
 int reversedNum = 0;
 int remainder = 0;
@@ -71,11 +72,22 @@ for (int i = 1; i <= magnitude; i++)
 }
 
 Console.WriteLine(reversedNum);
+*/
+
+/// SECOND TRY
 
 
+int startingNumber = 65532;
+int i = startingNumber;
+int reversedNumber = 0;
 
+while (i > 0)
+{
+    reversedNumber = reversedNumber * 10 + i % 10;
+    i = i / 10;
+}
 
-
+Console.WriteLine(reversedNumber);
 
 
 
