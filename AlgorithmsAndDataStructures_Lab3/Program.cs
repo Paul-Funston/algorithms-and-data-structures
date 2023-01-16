@@ -24,6 +24,56 @@ Create new methods to solve each of the following problems.
             returns {1, 2, 2, 3, 4, 5, 5, 7, 9, 13} 
 */
 
+int[] arrayOne = new int[] { 1, 2, 3, 4, 5 };
+int[] arrayTwo = new int[] { 2, 5, 7, 9, 13 };
+int combinedArrayLength = arrayOne.Length + arrayTwo.Length; 
+int[] arrayCombined = new int[combinedArrayLength];
+
+bool arrayCombinedLastIndexSet = false;
+int arrayOneIndex = 0;
+int arrayTwoIndex = 0;
+int combinedIndex = 0;
+
+while (!arrayCombinedLastIndexSet)
+{    
+
+    // Checking if we've hit the end of one or both arrays
+    if (arrayOneIndex >= arrayOne.Length && arrayTwoIndex >= arrayTwo.Length)
+    {
+        arrayCombinedLastIndexSet = true;
+        continue;
+    }
+    if (arrayOneIndex >= arrayOne.Length) 
+    { 
+        arrayCombined[combinedIndex++] = arrayTwo[arrayTwoIndex++];
+        continue;
+    }
+    if (arrayTwoIndex >= arrayTwo.Length)
+    { 
+        arrayCombined[combinedIndex++] = arrayOne[arrayOneIndex++];
+        continue;
+    }
+
+    // The comparison
+    if (arrayOne[arrayOneIndex] > arrayTwo[arrayTwoIndex])
+    {
+        arrayCombined[combinedIndex++] = arrayTwo[arrayTwoIndex++];
+        
+    } else
+    {
+        arrayCombined[combinedIndex++] = arrayOne[arrayOneIndex++];
+    }
+
+}
+
+foreach (int number in arrayCombined)
+{
+    Console.Write($"{ number}, ");
+}
+
+Console.WriteLine();
+
+
 
 
 /*
@@ -78,13 +128,13 @@ Console.WriteLine(reversedNum);
 
 
 int startingNumber = 65532;
-int i = startingNumber;
+int n = startingNumber;
 int reversedNumber = 0;
 
-while (i > 0)
+while (n > 0)
 {
-    reversedNumber = reversedNumber * 10 + i % 10;
-    i = i / 10;
+    reversedNumber = reversedNumber * 10 + n % 10;
+    n = n / 10;
 }
 
 Console.WriteLine(reversedNumber);
