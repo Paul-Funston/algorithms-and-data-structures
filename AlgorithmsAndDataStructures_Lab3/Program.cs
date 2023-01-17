@@ -17,6 +17,36 @@ Create new methods to solve each of the following problems.
  *     We have a list of integers where elements appear either once or twice. Find the elements that appeared twice in O(n) time.
         example: {1, 2, 3, 4, 7, 9, 2, 4} returns {2, 4}
 */
+using System;
+using System.Collections.Generic;
+
+int[] ints = new int[] { 1, 2, 3, 4, 7, 9, 2, 4 };
+int[] duplicateInts = new int[ints.Length];
+int duplicateIndex = 0;
+
+Array.Sort(ints);
+
+for (int i = 0; i < ints.Length - 1; i++)
+{
+    if (ints[i] == ints[i+1])
+    {
+        duplicateInts[duplicateIndex++] = ints[i];
+    }
+}
+
+
+foreach(int i in duplicateInts)
+{
+    if (i != 0)
+    {
+        Console.Write($"{i}, ") ;
+    }
+}
+
+Console.WriteLine();
+Console.WriteLine();
+
+
 
 /*
      We have two sorted int arrays which could be with different sizes. We need to merge them in a third array while keeping this result array sorted. Can you do that in O(n) time? Don't use any extra structures like Sets or Dictionaries
@@ -71,6 +101,7 @@ foreach (int number in arrayCombined)
     Console.Write($"{ number}, ");
 }
 
+Console.WriteLine();
 Console.WriteLine();
 
 
@@ -131,6 +162,7 @@ int startingNumber = 65532;
 int n = startingNumber;
 int reversedNumber = 0;
 
+Console.WriteLine($"Reversing Number: {startingNumber}");
 while (n > 0)
 {
     reversedNumber = reversedNumber * 10 + n % 10;
