@@ -123,11 +123,12 @@ Console.WriteLine();
      List<int> OrderByLooping (List<int>) orders a list of integers, from least to greatest, using only basic control statements (ie. if/else, for/while).
         For example, argument {6, -2, 5, 3} returns {-2, 3, 5, 6}.
 
-Complexity first Attempt is ON^2 and doesn't handle duplicates well
+Complexity first Attempt is ON^2 and doesn't handles duplicates poorly 
+
 */
 
 Console.WriteLine("Sorting Lists");
-List<int> numbers = new List<int>() { 6, -2, 5, 3 };
+List<int> numbers = new List<int>() { 6, -2, 5, 3, 3, 8, 6 };
 foreach (int n in numbers)
 {
     Console.WriteLine(n);
@@ -138,8 +139,19 @@ int lastLowest = int.MinValue;
 while (sortedNumbers.Count() < numbers.Count())
 {
     int currentLowest = int.MaxValue;
+    bool hasFoundDuplicate = false;
     foreach (int n in numbers)
-    {
+    {   
+        // Set flag once the previously found lowest number has been found, if its found again after flag is set its a duplicate.
+        if (n == lastLowest)
+        {
+            if (hasFoundDuplicate)
+            {
+                sortedNumbers.Add(n);
+                break;
+            } else { hasFoundDuplicate = true; }
+        } 
+
         if (n < currentLowest && n > lastLowest)
         {
             currentLowest = n;
