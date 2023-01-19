@@ -165,4 +165,28 @@ Console.WriteLine("sorted list");
 foreach(int n in sortedNumbers)
 {
    Console.WriteLine(n);
-} 
+}
+
+Console.WriteLine("Bubble Sort");
+
+// Bubble Sort
+
+int[] bubbleSort = numbers.ToArray();
+for (int j = 0; j < bubbleSort.Length; j++)
+{
+    for (int i = 0; i < bubbleSort.Length - 1 - j; i++)
+    {
+        if (bubbleSort[i] > bubbleSort[i + 1])
+        {
+            (bubbleSort[i + 1], bubbleSort[i]) = (bubbleSort[i], bubbleSort[i + 1]);
+        }
+    }
+}
+
+
+
+
+foreach(int i in bubbleSort)
+{
+    Console.Write($"{i} ");
+}
